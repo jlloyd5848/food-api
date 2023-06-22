@@ -36,5 +36,19 @@ class FoodControllerTest extends TestCase
         $response->assertJsonCount(3);
     }
 
+    public function test_can_delete_food()
+    {
+        // Create a sample food
+        $food = Food::factory()->create();
+
+        // Send a DELETE request to the endpoint for the specific food
+        $response = $this->delete('/api/foods/' . $food->id);
+
+        // Assert that the response has a successful status code
+        $response->assertStatus(204);
+
+    
+    }
+
 
 }
