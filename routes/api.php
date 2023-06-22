@@ -16,11 +16,17 @@ use App\Http\Controllers\MealCategoryController;
 |
 */
 Route::get('/foods', [FoodController::class, 'index']);
+
 Route::post('/foods', [FoodController::class, 'store']);
+
 Route::get('/foods/{id}', [FoodController::class, 'show']);
+
 Route::put('/foods/{id}', [FoodController::class, 'update']);
+
 Route::delete('/foods/{id}', [FoodController::class, 'destroy']);
 
+
+//==================================================================================================
 Route::prefix('meal-categories')->group(function () {
     Route::get('/',[MealCategoryController::class,'index']);
     Route::post('/',[MealCategoryController::class,'store']);
